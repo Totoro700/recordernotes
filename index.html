@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+        }
+        .ctn {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background: #eee;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="ctn">
+        <h1>Note to Fingerings Converter</h1>
+        <input type="text" id="notesInput" placeholder="Enter notes like this: E4 C5 D4 A#4 D#4">
+        <button onclick="e()">Convert</button>
+        <ul id="results"></ul>
+    </div>
+
+    <script>
+        const f = {
+            'E4': '0 3 2',
+            'F#4': '0 3 1',
+            'G4': '0 3 0',
+            'A4': '0 2 0',
+            'D4': '0 3 3',
+            'C4': '0 3 4',
+            'B4': '0 1 0',
+            'C5': '0 -1/2',
+            'D#4': '0 3 3.5',
+            'A#4': '0 1.5 0'
+        };
+
+        function e() {
+            const notesInput = document.getElementById('notesInput').value;
+            const notes = notesInput.split(' ');
+            const results = document.getElementById('results');
+            results.innerHTML = '';
+
+            notes.forEach(note => {
+                if (f[note]) {
+                    const li = document.createElement('li');
+                    li.textContent = `${note}: ${f[note]}`;
+                    results.appendChild(li);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
