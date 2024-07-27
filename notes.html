@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play Recorder Notes</title>
+    <style>
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Play Recorder Notes</h1>
+    <button onclick="playNote(261.63)">C4</button>
+    <button onclick="playNote(277.18)">C#4</button>
+    <button onclick="playNote(293.66)">D4</button>
+    <button onclick="playNote(311.13)">D#4</button>
+    <button onclick="playNote(329.63)">E4</button>
+    <button onclick="playNote(349.23)">F4</button>
+    <button onclick="playNote(369.99)">F#4</button>
+    <button onclick="playNote(392.00)">G4</button>
+    <button onclick="playNote(415.30)">G#4</button>
+    <button onclick="playNote(440.00)">A4</button>
+    <button onclick="playNote(466.16)">A#4</button>
+    <button onclick="playNote(493.88)">B4</button>
+
+    <script>
+        function playNote(frequency) {
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioContext.createOscillator();
+            oscillator.type = 'sine';
+            oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
+            oscillator.connect(audioContext.destination);
+            oscillator.start();
+            oscillator.stop(audioContext.currentTime + 1); // Play the note for 1 second
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+right hand has 3 left hand goes to 4
+
+example: 0 3 2
+0: thumb
+3: left hand 3 fingers
+2: right hand 2 fingers
+
+example: 0 2 0
+0: thumb
+2: left hand 2 fingers
+0: right hand 0 fingers
+
+example: 0 3 3.5
+0: thumb
+3: left hand 3 fingers
+3.5: right hand 3 fingers and half of 2nd hole
+
+example: 0 -1/2
+0: thumb
+-1/2: lift (1) press (2)
+
+notes available:
+'E4': '0 3 2'
+'F#4': '0 3 1'
+'G4': '0 3 0'
+'A4': '0 2 0'
+'D4': '0 3 3'
+'C4': '0 3 4'
+'B4': '0 1 0'
+'C5': '0 -1/2'
+'D#4': '0 3 3.5'
+'A#4': '0 1.5 0'
